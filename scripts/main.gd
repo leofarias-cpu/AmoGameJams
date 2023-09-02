@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = $player/Colisor
+@onready var player = $level/player/Colisor
 
 func _physics_process(delta):
 	if not player.has_overlapping_areas():

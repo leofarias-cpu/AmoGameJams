@@ -93,4 +93,5 @@ func _on_colisor_area_entered(area):
 
 func die():
 	print("F")
-	owner.restart()
+	var aaaa = get_node("../..")
+	aaaa.restart()

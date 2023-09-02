@@ -1,28 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://3ububpkvt36j"]
+[gd_scene load_steps=3 format=3 uid="uid://3ububpkvt36j"]
 
-[ext_resource type="PackedScene" uid="uid://gpm16wymq65" path="res://scenes/player_TopDown.tscn" id="1_b3wus"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_xiyuj"]
-[ext_resource type="PackedScene" uid="uid://o00ve67qlqxo" path="res://scenes/camera_2d.tscn" id="3_x3nfb"]
 [ext_resource type="PackedScene" uid="uid://bkl2jug1tkcmi" path="res://level1.tscn" id="4_2qj0v"]
-[ext_resource type="PackedScene" uid="uid://dhbkwn8oxf3id" path="res://scenes/bird.tscn" id="5_dgptd"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_xiyuj")
 
-[node name="player" parent="." instance=ExtResource("1_b3wus")]
-position = Vector2(8, 136)
+[node name="level" parent="." instance=ExtResource("4_2qj0v")]
 
-[node name="Camera2D" parent="." instance=ExtResource("3_x3nfb")]
-position = Vector2(48, 64)
-zoom = Vector2(3.5, 3.5)
-
-[node name="topdown_default" parent="." instance=ExtResource("4_2qj0v")]
-
-[node name="Bird" parent="." instance=ExtResource("5_dgptd")]
-position = Vector2(72, 72)
-moves = [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1)]
-
-[connection signal="body_exited" from="topdown_default/Hole" to="." method="_on_hole_body_exited"]
-
-[editable path="topdown_default"]
-[editable path="Bird"]
+[editable path="level"]
