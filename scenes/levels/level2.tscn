@@ -1,5 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkvfro7vdkmgs"]
+[gd_scene load_steps=5 format=3 uid="uid://dkvfro7vdkmgs"]
 
 [ext_resource type="PackedScene" uid="uid://jjis1y0ycc67" path="res://defaults/tilemap_default.tscn" id="1_iyrvc"]
+[ext_resource type="PackedScene" uid="uid://o00ve67qlqxo" path="res://scenes/camera_2d.tscn" id="2_um1lx"]
+[ext_resource type="PackedScene" uid="uid://dhbkwn8oxf3id" path="res://scenes/bird.tscn" id="3_tfm5j"]
+[ext_resource type="PackedScene" uid="uid://gpm16wymq65" path="res://scenes/player_TopDown.tscn" id="4_gsn2e"]
 
 [node name="level" instance=ExtResource("1_iyrvc")]
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65535, 0, 0, 1, 0, 0, 65534, 0, 0, -65536, 0, 0, -1, 0, 0, -2, 0, 0, 65533, 0, 0, -65537, 0, 0, -131073, 0, 0, -196609, 0, 0, -262145, 0, 0, -327681, 0, 0, -262143, 0, 0, -262144, 0, 0, -196610, 0, 0, -196611, 0, 0, -393217, 0, 0, -393218, 0, 0, -458752, 0, 0, -524287, 0, 0, -524288, 0, 0, -458753, 0, 0, -458754, 0, 0, -458755, 0, 0)
+
+[node name="Camera2D" parent="." index="0" instance=ExtResource("2_um1lx")]
+position = Vector2(-8, -56)
+
+[node name="Bird" parent="." index="1" instance=ExtResource("3_tfm5j")]
+position = Vector2(-40, -24)
+moves = [Vector2(1, 0), Vector2(1, 0), Vector2(1, 0), Vector2(1, 0)]
+
+[node name="Bird2" parent="." index="2" instance=ExtResource("3_tfm5j")]
+position = Vector2(24, -88)
+moves = [Vector2(-1, 0), Vector2(-1, 0), Vector2(-1, 0), Vector2(-1, 0)]
+
+[node name="player" parent="." index="3" instance=ExtResource("4_gsn2e")]
+position = Vector2(-8, 8)

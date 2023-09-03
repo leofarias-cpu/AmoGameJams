@@ -85,9 +85,7 @@ func inertia_move(new_position):
 		normal_move(new_position)
 
 func _on_colisor_area_entered(area):
-	if area.name == "Bunny":
-		pass
-	elif area.name == "Bird":
+	if area.has_method("kills_player"):
 		print("fiquei tliste")
 		die()
 

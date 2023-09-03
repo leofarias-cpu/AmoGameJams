@@ -1,11 +1,9 @@
-res://scripts/Next_level.gd
-res://level1.tscn
-res://scripts/main.gd
-res://scenes/main.tscn
-res://scripts/goal.gd
-res://scenes/player_TopDown.tscn
-res://scenes/bird.tscn
 res://scenes/levels/level2.tscn
+res://level1.tscn
+res://scenes/player_TopDown.tscn
+res://scenes/main.tscn
+res://scenes/bird.tscn
 res://defaults/tilemap_default.tscn
 res://scenes/goal.tscn
-res://scripts/Kill_box.gd
+res://scenes/bird.gd
+res://scripts/player.gd

@@ -21,3 +21,6 @@ func _process(delta):
 			if i == len(moves):
 				is_reverse = true
 				i -= 1
+func kills_player():
+	pass
+	#gambiarra

@@ -24,6 +24,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lwcv4")
 
 [node name="level" type="TileMap"]
+z_index = -1
 tile_set = SubResource("TileSet_l2a5n")
 format = 2
 layer_0/name = "Barriers"
