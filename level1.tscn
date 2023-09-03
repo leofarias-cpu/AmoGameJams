@@ -1,59 +1,55 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkl2jug1tkcmi"]
+[gd_scene load_steps=10 format=3 uid="uid://bbi0utmdtehep"]
 
 [ext_resource type="PackedScene" uid="uid://jjis1y0ycc67" path="res://defaults/tilemap_default.tscn" id="1_rpaoc"]
 [ext_resource type="PackedScene" uid="uid://gpm16wymq65" path="res://scenes/player_TopDown.tscn" id="2_45yat"]
 [ext_resource type="PackedScene" uid="uid://dhbkwn8oxf3id" path="res://scenes/bird.tscn" id="2_8431t"]
-[ext_resource type="Script" path="res://scripts/Next_level.gd" id="4_eg1e8"]
+[ext_resource type="PackedScene" uid="uid://cisx3de0ow7wx" path="res://scenes/goal.tscn" id="4_savi4"]
+[ext_resource type="PackedScene" uid="uid://cy8k8muw4jffa" path="res://scenes/kill_box.tscn" id="6_3w0ed"]
 [ext_resource type="PackedScene" uid="uid://o00ve67qlqxo" path="res://scenes/camera_2d.tscn" id="6_mncut"]
 
-[sub_resource type="GDScript" id="GDScript_wpxsj"]
-script/source = "extends Area2D
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unlkm"]
+size = Vector2(96, 32)
 
-"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n68vc"]
+size = Vector2(32, 160)
 
-[sub_resource type="PackedScene" id="PackedScene_mkwjk"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("level2", "Node2D", "topdown_default"),
-"node_count": 2,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 2147483647, 2, 0, 0, 0),
-"variants": [ExtResource("1_rpaoc")],
-"version": 3
-}
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ypxbd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psxi5"]
+size = Vector2(16, 16)
 
 [node name="level" instance=ExtResource("1_rpaoc")]
-layer_2/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 2, 0, 0, 131072, 0, 0, 131073, 0, 0, 196609, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 262148, 0, 0, 262149, 0, 0, 327685, 0, 0, 327684, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0)
+layer_2/tile_data = PackedInt32Array(1, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 2, 0, 0, 131072, 0, 0, 131073, 0, 0, 196609, 0, 0, 196608, 0, 0, 262144, 0, 0, 262145, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 262148, 0, 0, 262149, 0, 0, 327685, 0, 0, 327684, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0)
 
-[node name="Hole" type="Area2D" parent="." index="0"]
-script = SubResource("GDScript_wpxsj")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hole" index="0"]
-polygon = PackedVector2Array(0, 96, 32, 96, 32, 144, 0, 144)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Hole" index="1"]
-polygon = PackedVector2Array(0, 0, 0, 80, 32, 80, 32, 32, 48, 32, 48, 16, 64, 16, 64, 48, 80, 48, 80, 0)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Hole" index="2"]
-polygon = PackedVector2Array(64, 64, 96, 64, 96, 96, 64, 96)
-
-[node name="Bird" parent="." index="1" instance=ExtResource("2_8431t")]
+[node name="Bird" parent="." index="0" instance=ExtResource("2_8431t")]
 position = Vector2(72, 72)
 moves = [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1)]
 
-[node name="player" parent="." index="2" instance=ExtResource("2_45yat")]
+[node name="player" parent="." index="1" instance=ExtResource("2_45yat")]
 position = Vector2(8, 136)
 
-[node name="Next_level" type="Area2D" parent="." index="3"]
-position = Vector2(88, 88)
-script = ExtResource("4_eg1e8")
-next_level = SubResource("PackedScene_mkwjk")
+[node name="Goal" parent="." index="2" instance=ExtResource("4_savi4")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_level" index="0"]
-shape = SubResource("CircleShape2D_ypxbd")
+[node name="Camera2D" parent="." index="3" instance=ExtResource("6_mncut")]
 
-[node name="Camera2D" parent="." index="4" instance=ExtResource("6_mncut")]
+[node name="Kill_box" parent="." index="4" instance=ExtResource("6_3w0ed")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill_box" index="0"]
+position = Vector2(32, -16)
+shape = SubResource("RectangleShape2D_unlkm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Kill_box" index="1"]
+position = Vector2(-16, 80)
+shape = SubResource("RectangleShape2D_n68vc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Kill_box" index="2"]
+position = Vector2(0, 144)
+polygon = PackedVector2Array(0, 0, 0, 32, 64, 32, 64, -128, 48, -128, 48, -112, 32, -112, 32, -64, 0, -64, 0, -48, 32, -48, 32, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Kill_box" index="3"]
+position = Vector2(64, 96)
+polygon = PackedVector2Array(0, 0, 0, 32, 48, 32, 64, 32, 64, -96, 16, -96, 16, -48, 0, -48, 0, -32, 32, -32, 32, 0)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Kill_box" index="4"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_psxi5")
+
+[connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]

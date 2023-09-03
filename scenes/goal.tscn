@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cisx3de0ow7wx"]
+
+[ext_resource type="Script" path="res://scripts/goal.gd" id="1_rrgm5"]
+[ext_resource type="PackedScene" uid="uid://jjis1y0ycc67" path="res://defaults/tilemap_default.tscn" id="2_yjv1u"]
+
+[sub_resource type="PackedScene" id="PackedScene_mkwjk"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("level2", "Node2D", "topdown_default"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 2147483647, 2, 0, 0, 0),
+"variants": [ExtResource("2_yjv1u")],
+"version": 3
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ypxbd"]
+
+[node name="Goal" type="Area2D"]
+position = Vector2(88, 88)
+script = ExtResource("1_rrgm5")
+next_level = SubResource("PackedScene_mkwjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ypxbd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,7 +1,7 @@
-Node2D
 CollisionShape2D
-Area2D
 CollisionPolygon2D
+Area2D
+Node2D
 Line2D
 Sprite2D
 TileMap
