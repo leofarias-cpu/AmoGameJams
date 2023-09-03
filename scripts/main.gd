@@ -4,8 +4,8 @@ extends Node2D
 
 
 func _ready():
-	$level/Goal.level_won.connect(on_level_won)
-	$level/Kill_box.player_entered.connect(restart)
+	$/Goal.level_won.connect(on_level_won)
+	$/Kill_box.player_entered.connect(restart)
 
 func _physics_process(delta):
 	#if not player.has_overlapping_areas():

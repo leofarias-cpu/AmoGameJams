@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ububpkvt36j"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_31oc8"]
+[ext_resource type="PackedScene" uid="uid://bbi0utmdtehep" path="res://scenes/levels/level1.tscn" id="2_b88lj"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_31oc8")
+
+[node name="level" parent="." instance=ExtResource("2_b88lj")]
+z_index = 0
+
+[node name="Camera2D" parent="level" index="3"]
+position = Vector2(0, 72)
+
+[editable path="level"]
