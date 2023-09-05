@@ -1,4 +1,32 @@
-[gd_scene format=3 uid="uid://c74jxkwyd6ess"]
+[gd_scene load_steps=4 format=3 uid="uid://c74jxkwyd6ess"]
+
+[ext_resource type="Texture2D" uid="uid://dmwighfilo6w" path="res://sprites/final_sprites/tileset.png" id="1_auvdc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1pue"]
+texture = ExtResource("1_auvdc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xtvb1"]
+sources/0 = SubResource("TileSetAtlasSource_t1pue")
 
 [node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_xtvb1")
 format = 2
